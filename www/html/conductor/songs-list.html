@@ -1,0 +1,63 @@
+<!--<div class="log-out" ng-show="ConductorLogin" style="z-index:999;position: fixed;bottom:20px;left:20px">-->
+    <!--<button class="btn btn-default btn-sm"-->
+            <!--ng-click="logOut()">Log out</button>-->
+<!--</div>-->
+<div class="pause-audio" ng-show="PauseAudio" style="z-index:999;position: fixed;bottom:20px;right:20px">
+    <button class="btn btn-lgBig btn-warning"
+            ng-click="pauseAudio()">Pause</button>
+</div>
+    <div class="container" style="max-width:640px;margin-top:5px;">
+        <div class="top-nav btn-group" role="group" aria-label="menu">
+          <a href="#/groups" class="btn btn-lg btn-default">Group</a>
+          <a href="#/songs" class="btn btn-lg btn-primary">Record</a>
+          <a href="#/recordings" class="btn btn-lg btn-default">Play</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" style="margin-top:5px;">
+            <div class="col-sm-12" style="position:relative">
+
+                <div style="position:absolute;top:20px;right:20px;width:50px;" ng-if="!editor.isVisible()">
+                    <button class="btn btn-lg btn-success" type="button" ng-click="editor.show()">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+                <h1 style="text-align:center;">Select or Add Recording Songs</h1>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:15px;" ng-if="editor.isVisible()">
+            <div class="col-sm-12">
+                <textarea class="form-control" style="width:100%;height:200px"
+                    placeholder="Every song on a separate line, please"
+                    ng-model="object.newSongs"></textarea>
+                <div style="text-align:center;margin-top:5px;">
+                    <button class="btn btn-success" type="button" ng-click="editor.submit()">
+                            <i class="fa fa-check"></i> Save
+                    </button>
+                    <button class="btn btn-default" type="button" ng-click="editor.hide()">
+                        <i class="fa fa-remove"></i>
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:15px;" ng-if="!editor.isVisible()">
+            <div class="col-sm-12">
+
+                <table class="table table-border table-striped">
+                    <tr ng-repeat="s in songs" >
+                        <td style="font-size:16px;line-height:30px;text-align:center;width:40px;" ng-bind="($index+1)+'.'"></td>
+                        <td class="selectable" ng-click="select(s)" style="cursor:pointer;font-size:16px;line-height:30px;" ng-bind="s.Name"></td>
+                        <td style="width:30px;text-align:right;">
+                            <button type="button" class="btn btn-sm btn-danger" ng-click="destroy(s)">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>

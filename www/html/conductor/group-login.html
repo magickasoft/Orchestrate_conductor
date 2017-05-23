@@ -1,0 +1,37 @@
+<!--<div class="log-out" ng-show="ConductorLogin" style="z-index:999;position: fixed;bottom:20px;left:20px">-->
+    <!--<button class="btn btn-default btn-sm"-->
+            <!--ng-click="logOut()">Log out</button>-->
+<!--</div>-->
+<div class="pause-audio" ng-show="PauseAudio" style="z-index:999;position: fixed;bottom:20px;right:20px">
+    <button class="btn btn-lgBig btn-warning"
+            ng-click="pauseAudio()">Pause</button>
+</div>
+<div class="app-content" style="display:none">
+    <h1 style="text-align:center">Conductor</h1>
+    <!--<meta http-equiv="refresh" content="0,url=/conductor#/groups" />-->
+    <div class="mui-container">
+
+        <div class="mui-container-fluid mui-panel">
+            <form>
+
+                <legend>Please sign in</legend>
+                <div class="mui-textfield">
+                    <input type="text" ng-model="form.logincode" placeholder="Login code" maxlength="6" class="logincode" />
+                    <label>Code login</label>
+                </div>
+                <button type="submit" ng-click="submit()"
+                        ng-disabled="!canBeSubmitted()"
+                        class="mui-btn mui-btn--raised mui-btn--primary">
+                    Log In
+                </button>
+
+            </form>
+
+            <div class="alerts-container" ng-if="errors.length || errors">
+                <div ng-repeat="e in errors" class="alert alert-danger" ng-bind="e | nice_error"></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

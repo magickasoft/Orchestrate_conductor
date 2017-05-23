@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="images/conductor.png" />
+
+    <link rel="stylesheet" href="css/mui.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/rzslider.css" />
+    <!--<link rel="stylesheet" href="css/app.conductor.css" />-->
+
+    <title>Conductor</title>
+
+	  <script src="cordova.js"></script>
+	  <script src="js/jquery-1.11.0.min.js"></script>
+      <script src="js/jquery-dateFormat.min.js"></script>
+      <script src="js/jquery.sticky.js"></script>
+	  <script src="js/socket.io-1.3.7.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/lodash.compat.min.js"></script>
+    <script src="js/restangular.min.js"></script>
+    <script src="js/rzslider.js"></script>
+
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+    <script>
+       //UAT server
+       var API_SOCKET = "http://ec2-52-207-212-15.compute-1.amazonaws.com:80";
+       var API_STORAGE_ROOT = "http://ec2-52-207-212-15.compute-1.amazonaws.com/";
+       var API_ROOT = "http://ec2-52-207-212-15.compute-1.amazonaws.com/api";
+       //DEV server
+//     var API_SOCKET = "http://ec2-54-88-241-99.compute-1.amazonaws.com:80";
+//     var API_STORAGE_ROOT = "http://ec2-54-88-241-99.compute-1.amazonaws.com/";
+//     var API_ROOT = "http://ec2-54-88-241-99.compute-1.amazonaws.com/api";
+
+       //var API_SOCKET = "http://localhost:3000";
+       //var API_STORAGE_ROOT = "http://localhost:3000/";
+       //var API_ROOT = "http://localhost:3000/api";
+    </script>
+    <script src="js/app.conductor.js"></script>
+
+  </head>
+  <body>
+  <div ng-view style="background-color: #fff;"></div>
+        <!--<div ng-if="selectedGroup"-->
+            <!--style="text-align:right;padding:3px 10px;font-size:11px;"-->
+            <!--ng-bind="'Group: ' + selectedGroupName"></div>-->
+
+        <!--<div class="ng-view-parent">-->
+            <!--<div ng-view></div>-->
+        <!--</div>-->
+
+        <!--<div class="container">-->
+          <!--<div ng-if="errors.length" style="margin-top:10px" class="alert alert-danger">-->
+            <!--<div ng-repeat="e in errors" ng-bind="e"></div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="container">-->
+          <!--<div class="row">-->
+              <!--<div class="col-sm-12">-->
+                 <!--<pre id="output" style="overflow-y:auto; font-size:11px; min-height:400px; width:100%; background: #f0f0f0"></pre>-->
+             <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalByLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <!--<div class="modal-header">-->
+              <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+              <!--<h4 class="modal-title" id="myModalLabel">Warning!</h4>-->
+              <!--</div>-->
+              <div class="modal-body" style="text-align: center;"> Are you sure you want to log out?
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default btn-primary" ng-click="logOut()">Yes</button>
+                  <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">No</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  </body>
+</html>
